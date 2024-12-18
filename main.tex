@@ -21,10 +21,8 @@
 \graphicspath{ {./images/} }
 \usepackage[a4paper,top=3cm,bottom=3cm,left=3.5cm,right=2cm]{geometry}
 \usepackage{booktabs}
-\usepackage{fontspec,xltxtra,xunicode}
-\defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Ligatures=TeX]{Times New Roman}
-\setromanfont[Mapping=tex-text]{Times New Roman}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
 \usepackage[pdfauthor=\Autor,
     pdftitle=\Titulo,
     colorlinks=true,
@@ -34,19 +32,6 @@
 \hypersetup{colorlinks, citecolor=black, urlcolor=black}
 \usepackage{bookmark}
 \usepackage{amsmath}
-\usepackage{listings}
-\lstset{
-    basicstyle=\ttfamily\footnotesize,
-    breaklines=true,
-    breakatwhitespace=true,
-    captionpos=b,
-    frame=single,
-    numbers=left,
-    numberstyle=\tiny,
-    stepnumber=1,
-    tabsize=4,
-    showstringspaces=false
-}
 \renewcommand{\baselinestretch}{1.5}
 \begin{document}
     \title{\Titulo}
