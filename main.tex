@@ -11,6 +11,9 @@
 %
 \documentclass[12pt,a4paper,final]{article}
 \usepackage{csquotes}
+\usepackage{float}
+\usepackage{chngcntr}
+\counterwithin{table}{section}
 \usepackage[portuguese]{babel}
 \usepackage{polyglossia}
 \setdefaultlanguage{portuguese}
@@ -23,110 +26,236 @@
 \setmainfont[Ligatures=TeX]{Times New Roman}
 \setromanfont[Mapping=tex-text]{Times New Roman}
 \usepackage[pdfauthor=\Autor,
-            pdftitle=\Titulo, 
-		    colorlinks=true,
-            linkcolor=black,
-            citecolor=black,
-            bookmarksopen=true]{hyperref}
-\hypersetup{colorlinks, citecolor=black, urlcolor=black}           
+    pdftitle=\Titulo,
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    bookmarksopen=true]{hyperref}
+\hypersetup{colorlinks, citecolor=black, urlcolor=black}
 \usepackage{bookmark}
-\usepackage[style=apa, backend=biber, sortcites, url=true]{biblatex}
-\addbibresource{ref.bib}
+\usepackage{amsmath}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    tabsize=4,
+    showstringspaces=false
+}
 \renewcommand{\baselinestretch}{1.5}
 \begin{document}
-\title{\Titulo}
-\author{\Autor}
-\date{\Ano}
-\pagenumbering{gobble}
-\begin{titlepage}
-    \begin{center}
-        \vspace*{4cm}
-        
-        \textbf{\large UNIVERSIDADE ABERTA}
-        
-        \textbf{\large UNIVERSIDADE DE TRÁS-OS-MONTES E ALTO DOURO}
-        
-        \vspace{1cm}
-        
-		\begin{minipage}{0.4\textwidth}
-            \centering
-            \includegraphics[width=0.8\textwidth]{uab}
-        \end{minipage}
-        \begin{minipage}{0.4\textwidth}
-            \centering
-            \includegraphics[width=0.8\textwidth]{utad}
-        \end{minipage}
-        
-        \vspace{1.5cm}
-        
-        \textbf{\large \Titulo}
-        
-        \vspace{1.5cm}
-        
-        \textbf{\large \Autor}
-        
-        \vspace{2cm}
-        
-        \textbf{\large Mestrado em Engenharia Informática e Tecnologia Web}
-        \vfill
-        \textbf{\Ano}
-    \end{center}
-\end{titlepage}
-\renewcommand{\contentsname}{Índice}
-\cleardoublepage
-\pagenumbering{roman}
-\tableofcontents
-\newpage
-\listoffigures
-\newpage
-\listoftables
-\newpage
-\cleardoublepage
-\pagenumbering{arabic}
-\section{Introdução}
-Este é o texto da introdução. 
+    \title{\Titulo}
+    \author{\Autor}
+    \date{\Ano}
+    \pagenumbering{gobble}
+    \begin{titlepage}
+        \begin{center}
+            \vspace*{4cm}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.9\textwidth]{img_meitw}
-    \caption{Exemplo de uma figura}
-    \label{fig:exemplo}
-\end{figure}
+            \textbf{\large UNIVERSIDADE ABERTA}
 
-\section{Metodologia}
-Este é o texto da metodologia.
+            \textbf{\large UNIVERSIDADE DE TRÁS-OS-MONTES E ALTO DOURO}
 
-\section{Descrição}
-Detalhes da descrição da metodologia.
+            \vspace{1cm}
 
-\section{Estado da Arte}
-\subsection{Pesquisa}
-Detalhes da pesquisa sobre o estado da arte.
+            \begin{minipage}{0.4\textwidth}
+                \centering
+                \includegraphics[width=0.8\textwidth]{uab}
+            \end{minipage}
+            \begin{minipage}{0.4\textwidth}
+                \centering
+                \includegraphics[width=0.8\textwidth]{utad}
+            \end{minipage}
 
-\subsection{Critérios}
-Critérios da pesquisa sobre o estado da arte.
+            \vspace{1.5cm}
 
-\section{Resultados}
-Este é o texto dos resultados.
+            \textbf{\large \Titulo}
 
-\begin{table}[]
-\centering
-\resizebox{0.2\columnwidth}{!}{%
-\begin{tabular}{@{}|c|cccc|@{}}
-\toprule
-  & A & B & C & D \\ \midrule
-X & 4 & 3 & 2 & 1 \\ \midrule
-Y & 2 & 3 & 4 & 5 \\ \midrule
-Z & 4 & 3 & 2 & 1 \\ \bottomrule
-\end{tabular}%
-}
-\caption{Tabela Exemplo}
-\label{tab:my-table}
-\end{table}
+            \vspace{1.5cm}
 
-\section{Conclusões}
-Este é o texto da conclusão com uma citação \cite{su15010857}.
+            \textbf{\large \Autor}
 
-\newpage
-\printbibliography
+            \vspace{2cm}
+
+            \textbf{\large Mestrado em Engenharia Informática e Tecnologia Web}
+            \vfill
+            \textbf{\Ano}
+        \end{center}
+    \end{titlepage}
+    \renewcommand{\contentsname}{Índice}
+    \cleardoublepage
+    \pagenumbering{roman}
+    \tableofcontents
+    \newpage
+    \listoftables
+    \newpage
+    \cleardoublepage
+    \pagenumbering{arabic}
+
+
+    \section{Introdução}\label{sec:introducao}
+    \input{introducao}
+
+
+    \section{Problema}\label{sec:problema}
+    \input{problema}
+
+
+    \section{Formulação}\label{sec:formulacao}
+    \input{formulacao}
+
+
+    \section{Implementação Computacional}\label{sec:implementacao-computacional}
+    \input{implementacao-computacional}
+
+
+    \section{Demonstração da Resolução e Resultados Obtidos}\label{sec:demonstracao-da-resolucao-e-resultados-obtidos}
+    \input{demonstracao-da-resolucao-e-resultados-obtidos}
+    \newpage
+    \appendix
+
+    \section*{Anexo A}
+
+    Abaixo apresenta-se o código completo utilizado para a resolução do problema de planejamento logístico. O código foi ajustado para suportar diferentes cenários e incluir o uso de recursos adicionais.
+
+    \begin{lstlisting}[language=Python, label={lst:codigo}]
+from ortools.linear_solver import pywraplp
+
+def solve_logistics_with_ortools(
+    max_drivers=8,
+    driver_shift_time=8,
+    capacities={'A': 5, 'B': 3, 'C': 3, 'D': 1, 'E': 1},
+    speeds={'A': 50, 'B': 70, 'C': 70, 'D': 80, 'E': 80}
+):
+  # Criar o solver
+  solver = pywraplp.Solver.CreateSolver('SCIP') # Solving Constraint Integer Programs
+
+  if not solver:
+    print("Solver não disponível.")
+    return
+
+  # Dados do problema
+  volumes = {1: 0.017, 2: 0.053, 3: 0.026}
+
+  max_vehicle_time = 24  # Cada veículo pode operar por até 24 horas
+  distance_per_leg = 15  # Apenas ida (não há volta)
+
+  # Capacidade máxima de encomendas por viagem e viagens possíveis
+  max_trips = {j: (max_vehicle_time * speeds[j]) // distance_per_leg for j in
+               capacities.keys()}
+  max_orders_per_trip = {
+    j: {i: int(capacities[j] / volumes[i]) for i in volumes.keys()} for j in
+    capacities.keys()}
+  max_orders = {1: 500, 2: 250, 3: 250}
+
+  # Variáveis de decisão
+  x = {}  # Número de encomendas do tipo i alocadas ao veículo j
+  for i in range(1, 4):
+    for j in capacities.keys():
+      x[i, j] = solver.IntVar(0, solver.infinity(), f'x[{i},{j}]')
+
+  trips = {j: solver.IntVar(0, max_trips[j], f'trips[{j}]') for j in
+           capacities.keys()}  # Número de viagens
+  y = {j: solver.IntVar(0, max_drivers, f'y[{j}]') for j in
+       capacities.keys()}  # Motoristas
+  vehicle_time = {j: solver.NumVar(0, max_vehicle_time, f'vehicle_time[{j}]')
+                  for j in capacities.keys()}  # Horas totais de uso do veículo
+
+  # Função objetivo: Maximizar o número total de encomendas entregues com prioridade para encomendas menores
+  objective = solver.Objective()
+  for i in range(1, 4):
+    for j in capacities.keys():
+      priority = 1 / volumes[
+        i]  # Priorização com base na eficiência volumétrica
+      objective.SetCoefficient(x[i, j], priority)
+  objective.SetMaximization()
+
+  # Restrições
+  # 1. Respeitar a capacidade máxima por viagem e número total de encomendas entregues
+  for j in capacities.keys():
+    # Capacidade volumétrica por viagem
+    for i in range(1, 4):
+      solver.Add(x[i, j] <= trips[j] * max_orders_per_trip[j][i])
+
+    # Total de encomendas não pode exceder o limite físico de encomendas
+    solver.Add(solver.Sum(x[i, j] for i in volumes.keys()) <= trips[j] * sum(
+        max_orders_per_trip[j].values()))
+
+  # 2. Respeitar o tempo necessário para entregar as encomendas
+  for j in capacities.keys():
+    solver.Add(vehicle_time[j] >= solver.Sum(
+        x[i, j] * (distance_per_leg / speeds[j]) for i in volumes.keys()))
+
+  # 3. Respeitar o tempo máximo de uso por veículo em 24 horas
+  for j in capacities.keys():
+    solver.Add(vehicle_time[j] <= max_vehicle_time)
+
+  # 4. Tempo de trabalho dos motoristas por turno
+  for j in capacities.keys():
+    solver.Add(vehicle_time[j] <= y[j] * driver_shift_time)
+
+  # 5. Respeitar o número máximo de encomendas disponíveis
+  for i in range(1, 4):
+    solver.Add(
+      solver.Sum(x[i, j] for j in capacities.keys()) <= max_orders[i])
+
+  # 6. Limitar o número total de motoristas disponíveis
+  solver.Add(solver.Sum(y[j] for j in capacities.keys()) <= max_drivers)
+
+  # Resolver o problema
+  status = solver.Solve()
+
+  # Resultados
+  if status == pywraplp.Solver.OPTIMAL:
+    print("Solução ótima encontrada!")
+    total_orders = 0
+    orders_by_driver = {j: 0 for j in capacities.keys()}
+
+    for i in range(1, 4):
+      for j in capacities.keys():
+        total_orders += x[i, j].solution_value()
+        orders_by_driver[j] += x[i, j].solution_value()
+        print(
+            f"Número de encomendas do tipo {i} alocadas ao veículo {j}: {x[i, j].solution_value()}")
+    print()
+    for j in capacities.keys():
+      print(
+          f"Número de motoristas alocados ao veículo {j}: {y[j].solution_value():.0f}")
+      total_time = trips[j].solution_value() * (distance_per_leg / speeds[j])
+      print(
+          f"Tempo total de disponibilidade do veículo {j}: {total_time:.0f} horas")
+      print(
+          f"Tempo total de uso do veículo {j}: {vehicle_time[j].solution_value():.0f} horas")
+      if y[j].solution_value() > 0:
+        print(
+            f"Número de encomendas entregues pelo veículo {j}: {orders_by_driver[j]:.0f}")
+      print()
+    print(f"Total de encomendas entregues: {total_orders}")
+  else:
+    print("Não foi possível encontrar uma solução ótima.")
+
+
+# Executar o solver com OR-Tools
+solve_logistics_with_ortools()
+
+capacities = {'A': 5, 'B': 3, 'C': 3, 'D': 1, 'E': 1}
+speeds = {'A': 50, 'B': 70, 'C': 70, 'D': 80, 'E': 80}
+
+for drivers in range(8, 21):
+  for shift_time in range(8, 13):
+    solve_logistics_with_ortools(drivers, shift_time, capacities, speeds)
+
+
+capacities = {'A': 5, 'B': 3, 'C': 3, 'D': 1, 'E': 1, 'F': 1, 'G': 1, 'H': 1, 'I': 1}
+speeds = {'A': 50, 'B': 70, 'C': 70, 'D': 80, 'E': 80, 'F': 80, 'G': 80, 'H': 80, 'I': 80}
+
+for drivers in range(20, 21):
+  for shift_time in range(8, 13):
+    solve_logistics_with_ortools(drivers, shift_time, capacities, speeds)
+    \end{lstlisting}
 \end{document}

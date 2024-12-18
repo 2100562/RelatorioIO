@@ -1,0 +1,40 @@
+Uma empresa de logística enfrenta o desafio de planear a entrega de encomendas para otimizar o uso da sua frota e dos seus motoristas.
+O objetivo é maximizar o número de encomendas entregues, respeitando as restrições de capacidade dos veículos, disponibilidade de motoristas, tempos de trabalho e distâncias a percorrer.
+Este problema é representativo das operações diárias enfrentadas por muitas empresas no setor de transportes e logística.
+
+\subsection{Cenário}\label{subsec:cenario}
+A empresa dispõe de uma frota de cinco veículos, cada um com características distintas de capacidade e velocidade média:
+\begin{itemize}
+    \item \textbf{Veículo A}: Capacidade de 5 m³, velocidade média de 50 km/h.
+    \item \textbf{Veículo B} e \textbf{C}: Cada um com capacidade de 3 m³ e velocidade média de 70 km/h.
+    \item \textbf{Veículo D} e \textbf{E}: Cada um com capacidade de 1 m³ e velocidade média de 80 km/h.
+\end{itemize}
+No início do planeamento, o armazém possui um inventário de 1000 encomendas, distribuídas em três categorias com diferentes volumes unitários:
+\begin{itemize}
+    \item \textbf{Tipo A}: 500 encomendas, volume de 0,017 m³ por caixa.
+    \item \textbf{Tipo B}: 250 encomendas, volume de 0,053 m³ por caixa.
+    \item \textbf{Tipo C}: 250 encomendas, volume de 0,026 m³ por caixa.
+\end{itemize}
+Além disso, a empresa tem à disposição oito motoristas, cada um com um turno diário de 8 horas.
+Os veículos podem ser utilizados continuamente por diferentes motoristas ao longo das 24 horas do dia, desde que respeitadas as restrições de tempo de trabalho.
+Cada entrega envolve um percurso de 15 km, e a capacidade máxima de cada veículo não pode ser excedida em momento algum.
+
+\subsection{Objetivo}\label{subsec:objetivo}
+O objetivo deste planeamento é determinar a alocação ideal de motoristas e encomendas aos veículos, para maximizar o número de encomendas entregues, respeitando as seguintes restrições:
+\begin{enumerate}
+    \item \textbf{Capacidade dos veículos}: O volume total das encomendas transportadas por cada veículo numa viagem não pode exceder a sua capacidade.
+    \item \textbf{Tempo de entrega}: Cada veículo deve cumprir as entregas dentro do tempo disponível, considerando a distância e sua velocidade média.
+    \item \textbf{Tempo máximo de uso dos veículos}: Cada veículo pode operar por, no máximo, 24 horas.
+    \item \textbf{Turnos dos motoristas}: Cada motorista pode trabalhar no máximo 8 horas por dia.
+    \item \textbf{Número de motoristas disponíveis}: O total de motoristas alocados não pode ultrapassar o limite disponível de 8 motoristas.
+    \item \textbf{Limitação de encomendas}: O número total de encomendas entregues não pode ultrapassar o inventário disponível de cada tipo.
+\end{enumerate}
+
+\subsection{Desafio}\label{subsec:desafio}
+A tarefa consiste em determinar:
+\begin{enumerate}
+    \item Quantas encomendas de cada tipo devem ser alocadas a cada veículo.
+    \item Quantos motoristas devem ser alocados a cada veículo.
+    \item O tempo de operação de cada veículo.
+\end{enumerate}
+Este problema será resolvido com a aplicação de métodos de programação linear, para maximizar o número total de encomendas entregues dentro das restrições impostas.

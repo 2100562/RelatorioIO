@@ -1,0 +1,50 @@
+A resolução do problema foi realizada utilizando a linguagem de programação Python, em conjunto com a biblioteca OR-Tools, desenvolvida pela Google, que oferece suporte avançado para problemas de otimização, incluindo programação linear.
+O código desenvolvido foi projetado para resolver o problema de planeamento logístico descrito neste relatório.
+
+\subsection{Bibliotecas Utilizadas}\label{subsec:bibliotecas-utilizadas}
+A implementação utilizou as seguintes bibliotecas:
+\begin{itemize}
+    \item \textbf{OR-Tools}: Biblioteca de código aberto amplamente utilizada para resolver problemas de otimização combinatória e programação linear. No problema apresentado, utilizou-se o módulo \texttt{pywraplp} para a resolução de problemas de programação linear inteira.
+    \item \textbf{Python (Standard Library)}: Para cálculos matemáticos e estruturas de controlo básicas, como ciclos e funções.
+\end{itemize}
+
+\subsection{Estrutura do Código}\label{subsec:estrutura-do-codigo}
+O código foi estruturado em diferentes etapas para garantir clareza e modularidade. Estas etapas são descritas a seguir:
+\begin{enumerate}
+    \item \textbf{Inicialização do Solver:} Foi utilizado o solver \texttt{SCIP} (\textit{Solving Constraint Integer Programs}), um dos solucionadores disponíveis na OR-Tools, ideal para problemas de programação linear inteira com múltiplas variáveis e restrições.
+    \item \textbf{Definição dos Dados do Problema:}
+    \begin{itemize}
+        \item Capacidade dos veículos, velocidades médias e volumes das encomendas foram definidos como constantes.
+        \item Restrição de motoristas, tempos máximos de trabalho e disponibilidade dos veículos também foram especificados.
+    \end{itemize}
+    \item \textbf{Variáveis de Decisão:} Foram definidas as seguintes variáveis:
+    \begin{itemize}
+        \item \( x_{ij} \): Número de encomendas do tipo \( i \) alocadas ao veículo \( j \).
+        \item \( y_j \): Número de motoristas alocados ao veículo \( j \).
+        \item \( t_j \): Tempo total de uso do veículo \( j \).
+        \item \( \text{trips}_j \): Número de viagens realizadas por cada veículo.
+    \end{itemize}
+    \item \textbf{Função Objetivo:} A função objetivo foi definida para maximizar o número total de encomendas entregues, com uma prioridade maior para encomendas de menor volume, utilizando um fator de eficiência volumétrica.
+    \item \textbf{Definição das Restrições:} Foram implementadas todas as restrições descritas na formulação matemática, incluindo:
+    \begin{itemize}
+        \item Limitações de capacidade volumétrica dos veículos.
+        \item Tempo necessário para completar as entregas.
+        \item Tempo máximo diário de uso dos veículos.
+        \item Disponibilidade e turnos dos motoristas.
+        \item Limitações no número de encomendas disponíveis.
+    \end{itemize}
+    \item \textbf{Resolução do Problema:} O solver foi executado para encontrar a solução ótima, com os resultados apresentados em termos do número de encomendas entregues, motoristas alocados e tempo de operação de cada veículo.
+\end{enumerate}
+
+\subsection{Cenários Simulados}\label{subsec:cenarios-simulados}
+O código também permite a simulação de cenários alternativos, com ajustes nos seguintes parâmetros:
+\begin{itemize}
+    \item Número de motoristas disponíveis (\texttt{max\_drivers}).
+    \item Duração máxima dos turnos de trabalho (\texttt{driver\_shift\_time}).
+    \item Inclusão de veículos adicionais com características específicas.
+\end{itemize}
+Estas simulações foram realizadas iterativamente para explorar o impacto de mudanças nos recursos sobre o número total de encomendas entregues.
+
+\subsection{Execução e Resultados}\label{subsec:execucao-e-resultados}
+O código desenvolvido foi testado e executado para diferentes cenários, proporcionando uma análise detalhada das soluções possíveis e identificando as principais limitações no modelo inicial.
+O uso da OR-Tools garantiu soluções eficientes, mesmo para cenários mais complexos com múltiplas restrições e variáveis.

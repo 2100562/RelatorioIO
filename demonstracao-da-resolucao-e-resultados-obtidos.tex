@@ -1,0 +1,49 @@
+\subsection{Resultados da Resolução}\label{subsec:resultados-da-resolucao}
+A solução ótima encontrada para as condições iniciais é apresentada na Tabela \ref{tab:resultados}.
+\begin{table}[H]
+    \centering
+    \label{tab:resultados}
+    \begin{tabular}{@{}llll@{}}
+        \midrule
+        Veículo & Tipo de Encomenda & Encomendas Entregues & Motoristas Alocados \\ \midrule
+        A       & Nenhum            & 0                    & 0                   \\
+        B       & Nenhum            & 0                    & 0                   \\
+        C       & Tipo 1            & 74                   & 2                   \\
+        D       & Tipo 1            & 128                  & 3                   \\
+        E       & Tipo 1            & 128                  & 3                   \\ \bottomrule
+    \end{tabular}
+    \caption{Resultados da Resolução}
+\end{table}
+
+\subsection{Análise dos Resultados}\label{subsec:analise-detalhada-dos-resultados}
+Os resultados mostram que, com os recursos disponíveis (5 veículos e 8 motoristas), foi possível entregar um total de 330 encomendas, todas do tipo 1 (menor volume).
+Este cenário evidencia algumas características importantes:
+\begin{itemize}
+    \item \textbf{Utilização dos veículos:} Apenas os veículos \(C\), \(D\) e \(E\) foram utilizados. O veículo \(A\), apesar de ter a maior capacidade (\(5 \, \mathrm{m^3}\)), não foi usado devido à sua velocidade reduzida (\(50 \, \mathrm{km/h}\)), tornando-o ineficiente para maximizar entregas no tempo disponível.
+    O veículo \(B\), com características similares ao veículo \(C\), não foi utilizado por falta de motoristas disponíveis.
+    \item \textbf{Alocação dos motoristas:} A totalidade dos motoristas foi alocada para os veículos \(C\), \(D\) e \(E\), priorizando os veículos menores e mais rápidos (\(70-80 \, \mathrm{km/h}\)). Isso permitiu maximizar o número de viagens e, consequentemente, as entregas.
+    \item \textbf{Tipos de encomendas entregues:} Apenas encomendas do tipo 1 (\(0.017 \, \mathrm{m^3}\)) foram entregues, pois possuem o menor volume, permitindo transportar mais unidades por viagem.
+    Encomendas dos tipos 2 e 3 não foram entregues, indicando que, com as restrições atuais, não é viável priorizá-las.
+    \item \textbf{Eficiência por veículo:}
+    \begin{itemize}
+        \item O veículo \(C\) realizou \(16\) horas de operação e entregou \(74\) encomendas.
+        \item Os veículos \(D\) e \(E\) operaram por \(24\) horas cada e entregaram \(128\) encomendas cada.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Cenários Alternativos}\label{subsec:cenarios-alternativos}
+Para explorar a viabilidade de aumentar o número total de encomendas entregues, foram simulados cenários alternativos com ajustes nos recursos disponíveis:
+\begin{itemize}
+    \item \textbf{Aumento de motoristas:} Adicionando mais 2 motoristas (totalizando \(10\)) e permitindo turnos de \(12 \, \mathrm{horas}\), o número de encomendas entregues aumentou para \(560\).
+    Esse cenário evidencia que a limitação de motoristas foi um fator crítico no modelo inicial.
+    \item \textbf{Aumento da frota:} Com a inclusão de mais 4 veículos semelhantes aos \(D\) e \(E\), e elevando o total de motoristas para \(20\), foi possível entregar todas as \(1000\) encomendas disponíveis.
+    Este cenário demonstra a necessidade de ampliar significativamente os recursos para atender à totalidade da demanda.
+\end{itemize}
+
+\subsection{Notas finais}\label{subsec:conclusoes-dos-resultados}
+Os resultados obtidos destacam os seguintes pontos:
+\begin{itemize}
+    \item A limitação de motoristas é a principal limitação no cenário inicial, impedindo o uso pleno de todos os veículos disponíveis.
+    \item O foco em encomendas menores (tipo 1) foi estratégico para maximizar a eficiência volumétrica, mas limitou a diversidade de encomendas entregues.
+    \item Cenários com mais motoristas e veículos menores demonstraram ser mais eficazes para atender a demandas elevadas, com base na priorização do uso de recursos rápidos e flexíveis.
+\end{itemize}
