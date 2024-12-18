@@ -3,14 +3,14 @@ A solução ótima encontrada para as condições iniciais é apresentada na Tab
 \begin{table}[H]
     \centering
     \label{tab:resultados}
-    \begin{tabular}{@{}llll@{}}
+    \begin{tabular}{@{}lllll@{}}
         \midrule
-        Veículo & Tipo de Encomenda & Encomendas Entregues & Motoristas Alocados \\ \midrule
-        A       & Nenhum            & 0                    & 0                   \\
-        B       & Nenhum            & 0                    & 0                   \\
-        C       & Tipo 1            & 74                   & 2                   \\
-        D       & Tipo 1            & 128                  & 3                   \\
-        E       & Tipo 1            & 128                  & 3                   \\ \bottomrule
+        Veículo & Utilização & Tipo de Encomenda & Encomendas Entregues & Motoristas Alocados \\ \midrule
+        A       & 0h         & Nenhum            & 0                    & 0                   \\
+        B       & 0h         & Nenhum            & 0                    & 0                   \\
+        C       & 16h        & Tipo 1            & 74                   & 2                   \\
+        D       & 24h        & Tipo 1            & 128                  & 3                   \\
+        E       & 24h        & Tipo 1            & 128                  & 3                   \\ \bottomrule
     \end{tabular}
     \caption{Resultados da Resolução}
 \end{table}
@@ -43,7 +43,7 @@ Para explorar a viabilidade de aumentar o número total de encomendas entregues,
 \subsection{Notas finais}\label{subsec:conclusoes-dos-resultados}
 Os resultados obtidos destacam os seguintes pontos:
 \begin{itemize}
-    \item A limitação de motoristas é a principal limitação no cenário inicial, impedindo o uso pleno de todos os veículos disponíveis.
+    \item O número de motoristas é a principal limitação no cenário inicial, impedindo o uso pleno de todos os veículos disponíveis.
     \item O foco em encomendas menores (tipo 1) foi estratégico para maximizar a eficiência volumétrica, mas limitou a diversidade de encomendas entregues.
     \item Cenários com mais motoristas e veículos menores demonstraram ser mais eficazes para atender a demandas elevadas, com base na priorização do uso de recursos rápidos e flexíveis.
 \end{itemize}
